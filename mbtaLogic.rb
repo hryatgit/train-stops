@@ -1,7 +1,7 @@
 require 'trainLine'
 require 'crosshubManager'
 #########################
-### MAIN
+### MAIN: mbtaLogic.rb
 ###
 ### purpose: analyze  and manage information about
 ### stops on train network. Train network consists 
