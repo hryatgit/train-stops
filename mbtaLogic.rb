@@ -50,7 +50,8 @@ end
 def listAllLayOvers
   puts
   puts 'ALL LAY-OVER OPTIONS PER TRAIN LINE'
-  puts @crossHubManager.listLayOverOptionsPerLine(@allTrainLines)
+  @crossHubManager.listLayOverOptionsPerLine(@allTrainLines).each { |line| 
+    line.each { |token| puts token unless token.nil? } }
 end
 
 ############## main ###############
