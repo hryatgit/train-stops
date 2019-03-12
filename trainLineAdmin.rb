@@ -19,6 +19,6 @@ module YellowLine
   %w(hub-7 hub-11 hub-13).map {|hub| STOPS << hub }
 end
 
-module AvailableLines
-  AVAILABLE_LINES = %w(BlueLine GreenLine RedLine OrangeLine YellowLine)
+module ValidTrainLines
+  VALID_TRAIN_LINES = %w(BlueLine GreenLine RedLine OrangeLine YellowLine)
 end

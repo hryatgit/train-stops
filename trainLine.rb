@@ -1,13 +1,13 @@
 require 'trainLineAdmin'
 class TrainLine <Struct.new(:trainLineName, :stopList)
-  include AvailableLines
+  include ValidTrainLines
   
   def initialize trainLineName
     super
     addStops
   end
   def self.getAllLineNames
-    AVAILABLE_LINES
+    VALID_TRAIN_LINES
   end
   def addStops
     neededModuleTrainStops = Module.const_get(trainLineName)
