@@ -11,9 +11,8 @@
 ### train lines, then this stop is considered 
 ### to be a hub (cross point).
 ### UI functions:
-###   list all train lines and stops on particular line
-###   list all hubs (cross points), and belonging trains crossing this paticular hub
-###   list hubs on a train route,
-###   for each line list all connecting lines on particular hub on trains route
+###   (1) list all train lines and stops on particular line
+###   (2) list all hubs (cross points), and belonging trains crossing this paticular hub
+###   (3) list hubs on a train route, for each hub list all connecting lines
 ###
 ### To add, remove or modify a train line, edit 'trainLineAdmin.rb' file only. 
