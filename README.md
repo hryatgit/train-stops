@@ -1,7 +1,7 @@
 # train-stops
 
 #########################
-### MAIN: mbtaLogic.rb
+### MAIN: mbtaLogic.rb (tested with ruby 2.5)
 ###
 ### purpose: analyze  and manage information about
 ### stops on train network. Train network consists 
