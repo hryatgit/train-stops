@@ -19,18 +19,18 @@ class CrossHubManager
     }
   end
   def getAllHubNamesTrainLinesIncluded
-    # purpose: list of all CrossHubManager managed hubs: train line cross points,
-    # in addition, list all train lines doing stop at such hub
+    # purpose: list all by instance managed hubs  (train line cross points),
+    # also, list all train lines doing stop at respective hub
     @allHubs.keys.map { |key|
       [ key.to_s.ljust(10),
       @allHubs[key].getAllLines.inspect].join(':: ')
     }
   end
   def listLayOverOptionsPerLine knownTrainLines
-    # knownTrainLines: listed train line objects supposed to be analyzed
+    # knownTrainLines: list of train line objects supposed to be analyzed
     #
-    # purpose: for each train line, list all hub stops on that particular line
-    # and for that particular hub stop list all available connecting lines (hub: crossing stop)
+    # purpose: for each train line, list all hub stops this line is crossing,
+    # also each hub stop, list all available connecting lines
     knownTrainLines.map { |trainLine|
       trainLineHubs = Array.new
       @allHubs.keys.map { |hubKey|
@@ -48,6 +48,7 @@ end
 class CrossHub <Struct.new(:hubName, :trainList)
   # hubName:   train line stop name, common to two or more train lines (cross point)
   # trainList: trains, making stop at this hub (objects representing train lines)
+  #
   # purpose: represent one train stop as common stop for (but not limited to) least two train lines
   def initialize hubName, trainList
     super
