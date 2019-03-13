@@ -32,12 +32,13 @@ end
 def initAllCrosshubs
   @crossHubManager  = CrossHubManager.new @allTrainLines
 end
-### ##############################
 def listAllTrainLines
   puts
   puts 'ALL TRAIN LINES'
   @allTrainLines.each { |l|
-      puts [ l.getLineName.ljust(10), l.getAllStops.inspect ].join(':: ')
+      puts [
+        l.getLineName.ljust(10),
+        l.getAllStops.inspect ].join(':: ')
   }
 end
 
@@ -50,8 +51,8 @@ end
 def listAllLayOvers
   puts
   puts 'ALL LAY-OVER OPTIONS PER TRAIN LINE'
-  @crossHubManager.listLayOverOptionsPerLine(@allTrainLines).each { |line| 
-    line.each { |token| puts token unless token.nil? } }
+  @crossHubManager.listLayOverOptionsPerLine(@allTrainLines).each { |printline| 
+    printline.each { |token| puts token unless token.nil? } }
 end
 
 ############## main ###############

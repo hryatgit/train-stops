@@ -1,5 +1,7 @@
 module BlueLine
+  # stop names below geting modified, through suffix '-Blue' i.e. a => a-Blue
   STOPS = %w(a b c d e f g h).map {|stop| [stop, '-Blue'].join()}
+  # stop names below are taken 'as they are', i.e. hub-5 => hub-5
   %w(hub-5 hub-7 hub-11 hub-12).map {|hub| STOPS << hub }
 end
 module GreenLine
@@ -20,5 +22,6 @@ module YellowLine
 end
 
 module ValidTrainLines
+  # to get evaluated, train line must be listed below
   VALID_TRAIN_LINES = %w(BlueLine GreenLine RedLine OrangeLine YellowLine)
 end
