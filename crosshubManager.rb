@@ -10,9 +10,13 @@ class CrossHubManager
         trainLine.getAllStops.each { |trainLineStop|
           anotherTrainLine.getAllStops.each { |anotherTrainLineStop|
             next unless trainLineStop == anotherTrainLineStop
-            crossingLines = [ trainLine.getLineName, anotherTrainLine.getLineName ]
-            (@allHubs[trainLineStop.to_sym] = CrossHub.new(trainLineStop, crossingLines)) and next if @allHubs[trainLineStop.to_sym].nil?
-            @allHubs[trainLineStop.to_sym].addLines(crossingLines)
+            crossingTrainLines = [ 
+              trainLine.getLineName,
+              anotherTrainLine.getLineName ]
+            (@allHubs[trainLineStop.to_sym] = \
+            CrossHub.new(trainLineStop, crossingTrainLines)) \
+            and next if @allHubs[trainLineStop.to_sym].nil?
+            @allHubs[trainLineStop.to_sym].addLines(crossingTrainLines)
           }
         }
       }
@@ -53,8 +57,8 @@ class CrossHub <Struct.new(:hubName, :trainList)
   def initialize hubName, trainList
     super
   end
-  def addLines crossingLines
-    crossingLines.each { |line|
+  def addLines crossingTrainLines
+    crossingTrainLines.each { |line|
       next if self.trainList.include?(line)
       self.trainList  << line
     }

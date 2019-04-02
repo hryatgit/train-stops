@@ -1,5 +1,5 @@
 require 'trainLineAdmin'
-class TrainLine <Struct.new(:trainLineName, :stopList)
+class TrainLine < Struct.new(:trainLineName, :stopList)
   include ValidTrainLines
   
   def initialize trainLineName
@@ -10,9 +10,9 @@ class TrainLine <Struct.new(:trainLineName, :stopList)
     VALID_TRAIN_LINES
   end
   def addStops
-    neededModuleTrainStops = Module.const_get(trainLineName)
-    singleton_class.send(:include, neededModuleTrainStops)
-    self.stopList = neededModuleTrainStops::STOPS
+    relevantTrainStopsModule = Module.const_get(trainLineName)
+    singleton_class.send(:include, relevantTrainStopsModule)
+    self.stopList = relevantTrainStopsModule::STOPS
   end
   def getLineName
     trainLineName

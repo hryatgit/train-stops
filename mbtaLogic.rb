@@ -60,7 +60,7 @@ end
 initAllTrainLines
 initAllCrosshubs
 
-# show results verify
+# show results
 listAllTrainLines
 listAllTrainLinesOnCrossHub
 listAllLayOvers
