@@ -1,5 +1,5 @@
-require 'trainLine'
-require 'crosshubManager'
+require_relative './trainLine'
+require_relative './crosshubManager'
 #########################
 ### MAIN: mbtaLogic.rb
 ###

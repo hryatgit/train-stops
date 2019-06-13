@@ -1,4 +1,4 @@
-require 'trainLineAdmin'
+require_relative 'trainLineAdmin'
 class TrainLine < Struct.new(:trainLineName, :stopList)
   include ValidTrainLines
   
